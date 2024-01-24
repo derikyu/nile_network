@@ -171,7 +171,6 @@ class CityCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-            
                 Text(
                   online ? 'Online' : 'Offline',
                   style: TextStyle(
@@ -188,24 +187,18 @@ class CityCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 10),
-                
-                    Text(
+                Text(
                   'Last Updated: $lastUpdated',
                   style: TextStyle(
+                    fontSize: 10.0,
                     color: Colors.grey,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                
               ],
             ),
-          
-          
-          
-          
           ],
         ),
-      
       );
   }
 }

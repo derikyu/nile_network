@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+//import 'package:http/http.dart' as http;
+//import 'dart:async';
+//import 'dart:convert'
 
 class NetworkHome extends StatelessWidget {
   @override
@@ -27,6 +30,12 @@ class NetworkHome extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16.0,
                     color: Colors.white,
+                  ),
+                ),
+                Text('Last updated: 10 mins',
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.grey.shade200,
                   ),
                 ),
               ]
@@ -106,7 +115,7 @@ class CityCard extends StatelessWidget {
   final String cityName;
   final bool online;
   final String networkSpeed;
-   final String lastUpdated; 
+  final String lastUpdated; 
 
   CityCard({
     required this.cityName,
@@ -121,37 +130,43 @@ class CityCard extends StatelessWidget {
       elevation: 4.0,
       margin: EdgeInsets.all(10.0),
       child: Container (
-        height: 80.0, // this is the height of the card 
+        //height: 80.0, // this is the height of the card 
         child: ListTile(
           title: Text(cityName),
           trailing: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                online ? 'Online' : 'Offline',
-                style: TextStyle(
-                  color: online ? Colors.green : Colors.red,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(height: 4.0),
-              Text(
-                'Speed: $networkSpeed',
-                style: TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.grey,
-                ),
-              ),
-              
-              SizedBox(height: 10),
-              Text(
-                'Last Updated: $lastUpdated',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              Container( 
+
+              // Text(
+              //   online ? 'Online' : 'Offline',
+              //   style: TextStyle(
+              //     color: online ? Colors.green : Colors.red,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
+              // SizedBox(height: 4.0),
+              // Text(
+              //   'Speed: $networkSpeed',
+              //   style: TextStyle(
+              //     fontSize: 12.0,
+              //     color: Colors.grey,
+              //   ),
+              // ),
+              // SizedBox(height: 10),
+              // Text(
+              //   'Last Updated: $lastUpdated',
+              //   style: TextStyle(
+              //     color: Colors.grey,
+              //     fontWeight: FontWeight.bold,
+              //   ),
+              // ),
+
+                              
+
+
+              )
             ],
           ),
         onTap: () {

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'network_home.dart';
-import 'package:http/http.dart' as http
 
 class Splash extends StatelessWidget {
   @override

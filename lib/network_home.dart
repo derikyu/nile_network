@@ -1,9 +1,33 @@
 import 'package:flutter/material.dart';
-//import 'package:http/http.dart' as http;
-//import 'dart:async';
-//import 'dart:convert'
+import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
 
-class NetworkHome extends StatelessWidget {
+class NetworkHome extends StatefulWidget {
+  //const NetworkHome ((super.key));
+  @override 
+  _NetworkHomeState createState() => _NetworkHomeState();
+}
+
+class _NetworkHomeState extends State<NetworkHome> {
+  @override
+  void initState() {
+    super.initState();
+    _getData(); // Call _getData() when the widget is initialized.
+  }
+
+  Future<void> _getData() async { //if we use await... then we need async
+
+    //We have a Url which we convert to Uri. We then save the response 
+    String urlString = "https://jsonplaceholder.typicode.com/albums/1/";
+
+    Uri uri = Uri.parse(urlString);
+
+    var response = await http.get(uri);
+
+    print("Response Code: " + response.statusCode.toString()); //We can not concatonate string + init so we convert to strong
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,36 +161,31 @@ class CityCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container( 
 
-              // Text(
-              //   online ? 'Online' : 'Offline',
-              //   style: TextStyle(
-              //     color: online ? Colors.green : Colors.red,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
-              // SizedBox(height: 4.0),
-              // Text(
-              //   'Speed: $networkSpeed',
-              //   style: TextStyle(
-              //     fontSize: 12.0,
-              //     color: Colors.grey,
-              //   ),
-              // ),
-              // SizedBox(height: 10),
-              // Text(
-              //   'Last Updated: $lastUpdated',
-              //   style: TextStyle(
-              //     color: Colors.grey,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
+              Text(
+                online ? 'Online' : 'Offline',
+                style: TextStyle(
+                  color: online ? Colors.green : Colors.red,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 4.0),
+              Text(
+                'Speed: $networkSpeed',
+                style: TextStyle(
+                  fontSize: 12.0,
+                  color: Colors.grey,
+                ),
+              ),
+              SizedBox(height: 10),
+              Text(
+                'Last Updated: $lastUpdated',
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
 
-                              
-
-
-              )
             ],
           ),
         onTap: () {

@@ -131,6 +131,16 @@ class _NetworkHomeState extends State<NetworkHome> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // the action to be performed 
+        },
+      backgroundColor: Colors.green, // Set the background color
+        child: Icon(
+          Icons.create, // Use the create icon
+          color: Colors.white, // Set the icon color
+        ),  
+      )
     );
   }
 }
@@ -153,46 +163,49 @@ class CityCard extends StatelessWidget {
     return Card(
       elevation: 4.0,
       margin: EdgeInsets.all(10.0),
-      child: Container (
-        //height: 80.0, // this is the height of the card 
-        child: ListTile(
-          title: Text(cityName),
-          trailing: Column(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-
-              Text(
-                online ? 'Online' : 'Offline',
-                style: TextStyle(
-                  color: online ? Colors.green : Colors.red,
-                  fontWeight: FontWeight.bold,
+      child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [Text(cityName),
+             Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+            
+                Text(
+                  online ? 'Online' : 'Offline',
+                  style: TextStyle(
+                    color: online ? Colors.green : Colors.red,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-              SizedBox(height: 4.0),
-              Text(
-                'Speed: $networkSpeed',
-                style: TextStyle(
-                  fontSize: 12.0,
-                  color: Colors.grey,
+                SizedBox(height: 4.0),
+                Text(
+                  'Speed: $networkSpeed',
+                  style: TextStyle(
+                    fontSize: 12.0,
+                    color: Colors.grey,
+                  ),
                 ),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Last Updated: $lastUpdated',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.bold,
+                SizedBox(height: 10),
+                
+                    Text(
+                  'Last Updated: $lastUpdated',
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-
-            ],
-          ),
-        onTap: () {
-          // Add onTap functionality here if needed
-          },
+                
+              ],
+            ),
+          
+          
+          
+          
+          ],
         ),
-        ),
+      
       );
   }
 }

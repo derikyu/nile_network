@@ -24,28 +24,31 @@ class Splash extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 16.0),
             Container(
-              height: 100.0, // Set the height you desire
-              color: Colors.white, // Set the background color
-              child: Dismissible(
-                key: Key('1'),
-                direction: DismissDirection.endToStart,
-                onDismissed: (direction) {
-                  if (direction == DismissDirection.endToStart) {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => NetworkHome()
-                        ),
-                    );
-                  }
-                },
-              child: Center(
-                  child: Text(
-                    'Swipe to Get Started',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
+              height: 60.0, // Set the height you desire
+              width: 250.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                color: Colors.white, 
+                ),
+                child: Dismissible(
+                  key: Key('1'),
+                  direction: DismissDirection.endToStart,
+                  onDismissed: (direction) {
+                    if (direction == DismissDirection.endToStart) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => NetworkHome()),
+                      );
+                    } 
+                  },
+                  child: Center(
+                    child: Text(
+                      'Get Started',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18.0,
                     ),
                   ),
                 ),

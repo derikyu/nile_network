@@ -21,11 +21,8 @@ class _NetworkHomeState extends State<NetworkHome> {
 
     //We have a Url which we convert to Uri. We then save the response
     String urlString = "https://jsonplaceholder.typicode.com/albums/1/";
-
     Uri uri = Uri.parse(urlString);
-
     var response = await http.get(uri);
-
     print("Response Code: " +
         response.statusCode
             .toString()); //We can not concatonate string + init so we convert to strong
@@ -165,11 +162,16 @@ class CityCard extends StatelessWidget {
     return Card(
       elevation: 4.0,
       margin: EdgeInsets.all(10.0),
-      child: Row(
+      child: Padding (
+        padding: EdgeInsets.all(10.0),
+        child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Text(cityName),
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 10.0),
+              child: Text(cityName),
+            ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.center,
@@ -189,18 +191,19 @@ class CityCard extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 10),
+              //SizedBox(height: 10),
               Text(
                 'Last Updated: $lastUpdated',
                 style: TextStyle(
                   fontSize: 10.0,
                   color: Colors.grey,
                   fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
